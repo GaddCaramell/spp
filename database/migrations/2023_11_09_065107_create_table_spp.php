@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('table_spp', function (Blueprint $table) {
+            $table->integer('id_spp');
+            $table->integer('tahun');
+            $table->integer('nominal');
+            $table->timestamps();
+            $table->primary('id_spp');
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::drop('table_spp');
     }
 };

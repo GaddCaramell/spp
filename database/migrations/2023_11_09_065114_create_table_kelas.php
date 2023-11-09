@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('table_kelas', function (Blueprint $table) {
+            $table->integer('id_kelas');
+            $table->string('nama_kelas',10);
+            $table->string('kompetensi_keahlian',50);
+            $table->timestamps();
+            $table->primary('id_kelas');
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::drop('table_kelas');
     }
 };
