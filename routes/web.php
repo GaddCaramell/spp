@@ -18,8 +18,12 @@ Route::get('/', function () {
 });
 //DashAdmin
 Route::get('DashboardAdmin',function () {
-    return view('index2');
+    return view('LayoutUtama/index2');
     });
 Route::get('Siswatable',function () {
-    return view('table-siswa');
+    return view('LayoutUtama/tablesiswa');
 });    
+//Login
+Route::get('LoginAdmin',function () {
+    return view('LoginLogout/loginadmin');
+});
