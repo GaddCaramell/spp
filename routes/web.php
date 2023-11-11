@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//DashAdmin
 Route::get('DashboardAdmin',function () {
-    return view('html/dbadmin');
+    return view('index2');
     });
+Route::get('Siswatable',function () {
+    return view('table-siswa');
+});    
