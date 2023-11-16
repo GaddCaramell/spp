@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_kelas',10);
             $table->string('kompetensi_keahlian',50);
             $table->timestamps();
-            $table->primary('id_kelas');
+           
         });
     }
 

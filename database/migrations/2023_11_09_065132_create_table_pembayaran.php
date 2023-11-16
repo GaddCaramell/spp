@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('id_spp');
             $table->integer('jumlah_bayar');
             $table->timestamps();
-            $table->primary('id_pembayaran');
+           
         });
     }
 

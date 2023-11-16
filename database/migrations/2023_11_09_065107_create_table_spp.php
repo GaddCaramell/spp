@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('tahun');
             $table->integer('nominal');
             $table->timestamps();
-            $table->primary('id_spp');
+            
         });
     }
 
