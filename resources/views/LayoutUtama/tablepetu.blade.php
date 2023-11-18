@@ -1,28 +1,5 @@
 @extends('layout')
 @section('Navbar')
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-            <div class="sidebar-footer">
-                <div class="row">
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Spotify"><i
-                                class="bi bi-spotify"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Login"><i
-                                class="bi bi-door-open"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
-                                class="bi bi-person-fill-x"></i></a>
-                    </div>
-                </div>
-            </div>
-        </aside>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -40,7 +17,7 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{url('DashboardAdmin')}}">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="{{url('Petugastable')}}">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Table</li>
                                 </ol>
                             </nav>
@@ -115,7 +92,6 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
-    </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

@@ -11,6 +11,10 @@ class AdminController extends Controller
         return view('LayoutUtama.tablepetu');
     }
 
+    public function adminDash(){
+        return view('LayoutUtama.index2');
+    }
+
 
     public function loginpetugas(){
         return view ('LoginLogout.loginadmin');
