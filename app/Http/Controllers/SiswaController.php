@@ -22,7 +22,7 @@ class SiswaController extends Controller
     public function tambahSiswaUI(){
         return view('Tambah.tambahsiswa');
     }
-
+    //Start CRUD Siswa
     public function simpanSiswa(Request $request){
         $siswa = new Siswa();
         $cek = $request->validate([
@@ -37,6 +37,15 @@ class SiswaController extends Controller
         $siswa->create($request->all());
         return redirect('Siswatable')->with('notif','Sukses');
         }
+
+        public function hapusSiswa($nisn){
+            $siswa = new Siswa();
+            $siswa->find($nisn)->delete();
+            return back()->with('notif','Sukses Dihapus');
+        }
+        // END CRUD Siswa
+
+        //Start CRUD Kelas
     public function simpanKelas(Request $request){
         $kls = new Kelas();
         $cek = $request->validate([
@@ -51,4 +60,6 @@ class SiswaController extends Controller
         $kls->find($id)->delete();
         return back()->with('notif','Sukses Dihapus');
     }
+    //End CRUD Kelas
+
 }

@@ -134,7 +134,6 @@
                                                 <div class="mb-3">
                                                     <button class="btn form-control btn-primary mb-2">Tambah</button>
                                                     <button class="btn form-control btn-outline-success mb-2" type="reset">Batal</button>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
                                         </div>
