@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use App\Models\Siswa;
+use App\Models\Spp;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -17,11 +18,13 @@ class SiswaController extends Controller
         return view('LayoutUtama.tablekelas',['kls'=> $kls->all()]);
     }
     public function tablespp(){
-        return view('LayoutUtama.tablespp');
+        $spp = new Spp();
+        return view('LayoutUtama.tablespp',['spp'=> $spp->all()]);
     }
-    public function tambahSiswaUI(){
-        return view('Tambah.tambahsiswa');
-    }
+    // public function tambahSiswaUI(){
+    //     return view('Tambah.tambahsiswa');
+    // }
+
     //Start CRUD Siswa
     public function simpanSiswa(Request $request){
         $siswa = new Siswa();
@@ -36,16 +39,16 @@ class SiswaController extends Controller
         ]);
         $siswa->create($request->all());
         return redirect('Siswatable')->with('notif','Sukses');
-        }
+    }
 
-        public function hapusSiswa($nisn){
-            $siswa = new Siswa();
-            $siswa->find($nisn)->delete();
-            return back()->with('notif','Sukses Dihapus');
-        }
-        // END CRUD Siswa
+    public function hapusSiswa($nisn){
+        $siswa = new Siswa();
+        $siswa->find($nisn)->delete();
+        return back()->with('notif','Sukses Dihapus');
+    }
+    // END CRUD Siswa
 
-        //Start CRUD Kelas
+    //Start CRUD Kelas
     public function simpanKelas(Request $request){
         $kls = new Kelas();
         $cek = $request->validate([
@@ -62,4 +65,20 @@ class SiswaController extends Controller
     }
     //End CRUD Kelas
 
+    //Start CRUD Spp 
+    public function simpanSpp(Request $request){
+        $sp = new Spp();
+        $cek = $request->validate([
+            'tahun'=>'required|max:4',
+            'nominal'=>'request',
+        ]);
+        $sp->create($request->all());
+        return redirect('Spptable')->with('notif','Sukses');
+    }
+    public function hapusSpp($ids){
+        $sp = new Spp();
+        $sp->find($ids)->delete();
+        return back()->with('notif','Sukses Dihapus');
+    }   
+    //End CRUD Spp
 }

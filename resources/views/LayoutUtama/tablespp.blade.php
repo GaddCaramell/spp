@@ -41,24 +41,69 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Table SPP</h4>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="bi bi-plus-circle"> Tambah Spp</i>
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Kelas</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ url('simpanSpp') }}" method="post">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label for="tahun" class="form-label">Tahun</label>
+                                                    <input type="text" class="form-control" name="tahun" id="tahun"
+                                                        placeholder="Tahun">
+                                                        @error('tahun')
+                                                        <div class="form-text">
+                                                            {{$message}}
+                                                        </div>
+                                                    @enderror    
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nominal" class="form-label">Nominal</label>
+                                                    <input type="text" class="form-control" name="nominal" id="nominal"
+                                                        placeholder="Nominal">
+                                                        @error('nominal')
+                                                        <div class="form-text">
+                                                            {{$message}}
+                                                        </div>
+                                                    @enderror    
+                                                </div>
+                                                <div class="mb-3">
+                                                    <button class="btn form-control btn-primary mb-2">Tambah</button>
+                                                    <button class="btn form-control btn-outline-success mb-2" type="button" data-bs-dismiss="modal">Batal</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                                 <h6 class="card-subtitle"> </h6>
                                 <div class="table-responsive">
                                     <table class="table user-table">
                                         <thead>
                                             <tr>
-                                                <th class="border-top-0">#</th>
-                                                <th class="border-top-0">First Name</th>
-                                                <th class="border-top-0">Last Name</th>
-                                                <th class="border-top-0">Username</th>
+                                                <th class="border-top-0">ID Spp</th>
+                                                <th class="border-top-0">Tahun</th>
+                                                <th class="border-top-0">Nominal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($spp as $sp)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
+                                                <td>{{$sp->id_spp}}</td>
+                                                <td>{{$sp->tahun}}</td>
+                                                <td>{{$sp->nominal}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

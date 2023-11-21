@@ -32,9 +32,9 @@ Route::get('Spptable',[SiswaController::class,'tablespp']);
 
 
 //Login & Simpan Login Petugas & Admin
+Route::post('simpanLoginPetu',[AdminController::class,'simpanPetu']);
+Route::get('hapusPetu',[AdminController::class,'hapusPetu']);
 Route::get('loginpetu',[AdminController::class,'loginpetugas']);
-Route::post('simpanLoginPetu',[AdminController::class,'cekLoginPetu']);
-Route::get('simpanLoginPetu',[AdminController::class,'logoutPetu']);
 
 //Login & Simpan Login Siswa
 Route::get('LoginSiswa',[SiswaController::class,'loginSiswa']);
@@ -47,4 +47,9 @@ Route::get('hapusKelas/{id}',[SiswaController::class,'hapusKelas']);
 //CRUD Siswa
 Route::post('simpanSiswa',[SiswaController::class,'simpanSiswa']);
 Route::get('hapusSiswa/{nisn}',[SiswaController::class,'hapusSiswa']);
+
+//CRUD Spp
+Route::post('simpanSpp',[SiswaController::class,'simpanSpp']);
+Route::get('hapusSpp/{ids}',[SiswaController::class,'hapusSpp']);
+
 
