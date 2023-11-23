@@ -11,7 +11,10 @@ class SiswaController extends Controller
 {
     public function tablesiswa(){
         $siswa = new Siswa();
-        return view('LayoutUtama.tablesiswa',['siswa'=> $siswa->all()]);
+        $datakelas = new Kelas();
+        $dataspp = new Spp();
+        $siswa = $siswa->with(['Kelas','Spp'])->get();
+        return view('LayoutUtama.tablesiswa',['siswa'=> $siswa->all(),'kls'=> $datakelas->all(),'spp'=> $dataspp->all()]);
     }
     public function tablekelas(){
         $kls = new Kelas();
@@ -28,15 +31,15 @@ class SiswaController extends Controller
     //Start CRUD Siswa
     public function simpanSiswa(Request $request){
         $siswa = new Siswa();
-        $cek = $request->validate([
-            'nisn'=> 'required|max:10',
-            'nis'=> 'required|max:8',
-            'nama'=> 'required|max:35',
-            'id_kelas'=> 'required',
-            'alamat'=> 'required',
-            'no_telp'=> 'required|13',
-            'id_spp'=> 'required',
-        ]);
+        // $cek = $request->validate([
+        //     'nisn'=> 'required|max:10',
+        //     'nis'=> 'required|max:8',
+        //     'nama'=> 'required|max:35',
+        //     'id_kelas'=> 'required',
+        //     'alamat'=> 'required',
+        //     'no_telp'=> 'required|13',
+        //     'id_spp'=> 'required',
+        // ]);
         $siswa->create($request->all());
         return redirect('Siswatable')->with('notif','Sukses');
     }
@@ -46,6 +49,7 @@ class SiswaController extends Controller
         $siswa->find($nisn)->delete();
         return back()->with('notif','Sukses Dihapus');
     }
+
     // END CRUD Siswa
 
     //Start CRUD Kelas
@@ -63,6 +67,12 @@ class SiswaController extends Controller
         $kls->find($id)->delete();
         return back()->with('notif','Sukses Dihapus');
     }
+
+    public function editKelas(Request $request,$id){
+        $kls = new Kelas();
+        $kls->find($id)->update($request->all());
+        return back()->with('notif','Sukses  Diedit');
+    }
     //End CRUD Kelas
 
     //Start CRUD Spp 
@@ -70,7 +80,7 @@ class SiswaController extends Controller
         $sp = new Spp();
         $cek = $request->validate([
             'tahun'=>'required|max:4',
-            'nominal'=>'request',
+            'nominal'=>'required',
         ]);
         $sp->create($request->all());
         return redirect('Spptable')->with('notif','Sukses');

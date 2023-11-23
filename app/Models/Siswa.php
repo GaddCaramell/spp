@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Siswa extends Model
 {
@@ -24,4 +25,13 @@ class Siswa extends Model
      // Setting kolom yang dapat diisi dengan massal
  
      protected $guarded=[];
+
+    public function Kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class);
+    } 
+    public function Spp(): BelongsTo
+    {
+        return $this->belongsTo(Spp::class);
+    }
 }

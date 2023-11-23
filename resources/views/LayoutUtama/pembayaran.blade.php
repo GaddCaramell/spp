@@ -149,31 +149,32 @@
                                     <table class="table user-table">
                                         <thead>
                                             <tr>
+                                                <th class="border-top-0">ID Pembayaran</th>
+                                                <th class="border-top-0">ID Petugas</th>
                                                 <th class="border-top-0">Nisn</th>
-                                                <th class="border-top-0">Nisn</th>
-                                                <th class="border-top-0">Nama</th>
-                                                <th class="border-top-0">Kelas</th>
-                                                <th class="border-top-0">Alamat</th>
-                                                <th class="border-top-0">No Telfon</th>
+                                                <th class="border-top-0">Tanggal Bayar</th>
+                                                <th class="border-top-0">Bulan Bayar</th>
+                                                <th class="border-top-0">Tahun Bayar</th>
                                                 <th class="border-top-0">ID Spp</th>
                                                 <th class="border-top-0">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($siswa as $sis)
+                                            
                                             <tr>
-                                                <td>{{$sis->nisn}}</td>
-                                                <td>{{$sis->nis}}</td>
-                                                <td>{{$sis->nama}}</td>
-                                                <td>{{$sis->id_kelas}}</td>
-                                                <td>{{$sis->alamat}}</td>
-                                                <td>{{$sis->no_telp}}</td>
-                                                <td>{{$sis->id_spp}}</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td>
                                                     <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="bi bi-pencil-square"></i></a>
                                                     <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
                                                 </td>
-                                            @endforeach
+                                            
                                             </tr>
                                         </tbody>
                                     </table>

@@ -43,6 +43,7 @@ Route::get('LogoutSiswa',[SiswaController::class,'logoutSiswa']);
 //CRUD Kelas
 Route::post('simpanKelas',[SiswaController::class,'simpanKelas']);
 Route::get('hapusKelas/{id}',[SiswaController::class,'hapusKelas']);
+Route::get('editKelas/{id}',[SiswaController::class,'editKelas']);
 
 //CRUD Siswa
 Route::post('simpanSiswa',[SiswaController::class,'simpanSiswa']);
