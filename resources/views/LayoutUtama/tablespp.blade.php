@@ -50,7 +50,7 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Kelas</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">SPP</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -94,6 +94,7 @@
                                                 <th class="border-top-0">ID Spp</th>
                                                 <th class="border-top-0">Tahun</th>
                                                 <th class="border-top-0">Nominal</th>
+                                                <th class="border-top-0">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -102,6 +103,10 @@
                                                 <td>{{$sp->id_spp}}</td>
                                                 <td>{{$sp->tahun}}</td>
                                                 <td>{{$sp->nominal}}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                                    <a href="{{url('hapusSpp/'.$sp->id_spp)}}" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

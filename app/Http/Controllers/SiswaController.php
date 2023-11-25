@@ -14,7 +14,7 @@ class SiswaController extends Controller
         $datakelas = new Kelas();
         $dataspp = new Spp();
         $siswa = $siswa->with(['Kelas','Spp'])->get();
-        return view('LayoutUtama.tablesiswa',['siswa'=> $siswa->all(),'kls'=> $datakelas->all(),'spp'=> $dataspp->all()]);
+        return view('LayoutUtama.tablesiswa',['siswa'=> $siswa,'kls'=> $datakelas->all(),'spp'=> $dataspp->all()]);
     }
     public function tablekelas(){
         $kls = new Kelas();

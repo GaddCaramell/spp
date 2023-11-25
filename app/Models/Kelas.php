@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kelas extends Model
 {
@@ -23,4 +24,11 @@ class Kelas extends Model
      // Setting kolom yang dapat diisi dengan massal
  
      protected $guarded=[];
+
+     public function siswa(): HasMany
+     {
+        return $this->hasMany(Siswa::class,'id_siswa','id_siswa');
+     }
+
+
 }

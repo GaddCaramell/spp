@@ -48,9 +48,11 @@ Route::get('editKelas/{id}',[SiswaController::class,'editKelas']);
 //CRUD Siswa
 Route::post('simpanSiswa',[SiswaController::class,'simpanSiswa']);
 Route::get('hapusSiswa/{nisn}',[SiswaController::class,'hapusSiswa']);
+Route::get('editSiswa/{nisn}',[SiswaController::class,'hapusSiswa']);
 
 //CRUD Spp
 Route::post('simpanSpp',[SiswaController::class,'simpanSpp']);
 Route::get('hapusSpp/{ids}',[SiswaController::class,'hapusSpp']);
+Route::get('editSpp/{ids}',[SiswaController::class,'hapusSpp']);
 
 

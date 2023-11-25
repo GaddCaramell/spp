@@ -28,10 +28,10 @@ class Siswa extends Model
 
     public function Kelas(): BelongsTo
     {
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Kelas::class ,'id_kelas','id_kelas');
     } 
     public function Spp(): BelongsTo
     {
-        return $this->belongsTo(Spp::class);
+        return $this->belongsTo(Spp::class, 'id_spp');
     }
 }
