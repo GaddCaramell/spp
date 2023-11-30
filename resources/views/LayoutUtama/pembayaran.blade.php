@@ -178,7 +178,6 @@
                                                 <th class="border-top-0">Tahun Bayar</th>
                                                 <th class="border-top-0">ID Spp</th>
                                                 <th class="border-top-0">Jumlah Bayar</th>
-                                                <th class="border-top-0">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
