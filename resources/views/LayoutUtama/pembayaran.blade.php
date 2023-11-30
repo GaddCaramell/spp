@@ -192,10 +192,6 @@
                                                 <td>{{$pemb->tahun_bayar}}</td>
                                                 <td>{{$pemb->id_spp}}</td>
                                                 <td>{{$pemb->jumlah_bayar}}</td>
-                                                <td>
-                                                    <a href="{{url('editBayar/'.$pemb->id_pembayaran)}}" class="btn btn-warning btn-circle btn-sm btn-open"><i class="bi bi-pencil-square"></i></a>
-                                                    <a href="{{url('hapusBayar/'.$pemb->id_pembayaran)}}" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
-                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
