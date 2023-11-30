@@ -44,7 +44,7 @@
                                 <!-- Modal Tambah Kelas -->
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-circle"> Tambah Kelas</i>
+                                    <i class="bi bi-door-open"> Tambah Kelas</i>
                                 </button>
                                 
                                 <!-- Modal -->
@@ -52,7 +52,7 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Kelas</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-house-add-fill"></i> Tambah Kelas</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">

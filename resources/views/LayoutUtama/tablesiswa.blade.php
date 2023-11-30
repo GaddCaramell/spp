@@ -44,7 +44,7 @@
                                <!-- Modal Tambah Siswa -->
                                <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-circle"> Tambah Siswa</i>
+                                    <i class="bi bi-person-plus"> Tambah Siswa</i>
                                 </button>
                                 
                                 <!-- Modal -->
@@ -52,7 +52,7 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-person-plus-fill"></i> Tambah Siswa </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -171,7 +171,7 @@
                                                 <td>{{$sis->id_spp}}</td>
                                                 <td>
                                                     <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
+                                                    <a href="{{url('hapusSiswa/'.$sis->id_siswa)}}" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
                                                 </td>
                                             @endforeach
                                             </tr>

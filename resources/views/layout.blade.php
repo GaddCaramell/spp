@@ -133,20 +133,23 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('DashAdmin')}}" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
+                                href="{{url('DashAdmin')}}" aria-expanded="false"><i class="bi bi-house-door-fill"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('Siswatable')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{url('Siswatable')}}" aria-expanded="false"><i class="bi bi-person-fill"></i><span
                                     class="hide-menu">Table Siswa</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('Petugastable')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{url('Petugastable')}}" aria-expanded="false"><i class="bi bi-person-lines-fill"></i><span
                                     class="hide-menu">Table Petugas</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('Kelastable')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{url('Kelastable')}}" aria-expanded="false"><i class="bi bi-house-add-fill"></i><span
                                     class="hide-menu">Table Kelas</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('Spptable')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{url('Spptable')}}" aria-expanded="false"><i class="bi bi-book-half"></i><span
                                     class="hide-menu">Table SPP</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{url('Pembayarantable')}}" aria-expanded="false"><i class="bi bi-currency-exchange"></i><span
+                                    class="hide-menu">Pembayaran</span></a></li>
                     </ul>
 
                 </nav>

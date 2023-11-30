@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Pembayaran;
+use App\Models\Petugas;
 use App\Models\Siswa;
 use App\Models\Spp;
 use Illuminate\Http\Request;
@@ -24,9 +26,14 @@ class SiswaController extends Controller
         $spp = new Spp();
         return view('LayoutUtama.tablespp',['spp'=> $spp->all()]);
     }
-    // public function tambahSiswaUI(){
-    //     return view('Tambah.tambahsiswa');
-    // }
+    public function tablebayar(){
+        $pb = new Pembayaran();
+        $datapetugas  = new Petugas();
+        $dataspp = new Spp();
+        $datasiswa = new Siswa();
+        $pb = $pb->with(['Petugas','Spp','Siswa'])->get();
+        return view('LayoutUtama.pembayaran',['pb'=> $pb->all(),'p'=>$datapetugas->all(),'spp'=>$dataspp->all(),'sw'=>$datasiswa->all()]);
+    }
 
     //Start CRUD Siswa
     public function simpanSiswa(Request $request){
@@ -91,4 +98,24 @@ class SiswaController extends Controller
         return back()->with('notif','Sukses Dihapus');
     }   
     //End CRUD Spp
+    //Start CRUD Bayar
+    public function simpanBayar(Request $request){
+        $p = new Pembayaran();
+        $p->create($request->all());
+        return redirect('Pembayarantable')->with('notif','Berhasil Dibayar');
+    } 
+    public function hapusBayar($idpembayaran){
+        $p = new Pembayaran();
+        $p->find($idpembayaran)->delete();
+        return back()->with('notif','Berhasil dihapus');
+    }   
+    public function editBayat(Request $request,     $idpembayaran){
+        $p = new Pembayaran();
+        $p->find($idpembayaran)->update($request->all());
+        return redirect('Pembayarantable')->with('notif','Berhasil Diedit');
+    }
+
+
+
+    //End CRUD Bayar
 }

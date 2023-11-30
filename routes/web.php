@@ -29,11 +29,12 @@ Route::get('Siswatable',[SiswaController::class,'tablesiswa']);
 Route::get('Petugastable',[AdminController::class,'tablepetugas']);
 Route::get('Kelastable',[SiswaController::class,'tablekelas']);
 Route::get('Spptable',[SiswaController::class,'tablespp']);
+Route::get('Pembayarantable',[SiswaController::class,'tablebayar']);
 
 
 //Login & Simpan Login Petugas & Admin
-Route::post('simpanLoginPetu',[AdminController::class,'simpanPetu']);
-Route::get('hapusPetu',[AdminController::class,'hapusPetu']);
+Route::post('simpanPetu',[AdminController::class,'simpanPetu']);
+Route::get('hapusPetu/{idp}',[AdminController::class,'hapusPetu']);
 Route::get('loginpetu',[AdminController::class,'loginpetugas']);
 
 //Login & Simpan Login Siswa
@@ -48,11 +49,16 @@ Route::get('editKelas/{id}',[SiswaController::class,'editKelas']);
 //CRUD Siswa
 Route::post('simpanSiswa',[SiswaController::class,'simpanSiswa']);
 Route::get('hapusSiswa/{nisn}',[SiswaController::class,'hapusSiswa']);
-Route::get('editSiswa/{nisn}',[SiswaController::class,'hapusSiswa']);
+Route::get('editSiswa/{nisn}',[SiswaController::class,'editSiswa']);
 
 //CRUD Spp
 Route::post('simpanSpp',[SiswaController::class,'simpanSpp']);
 Route::get('hapusSpp/{ids}',[SiswaController::class,'hapusSpp']);
-Route::get('editSpp/{ids}',[SiswaController::class,'hapusSpp']);
+Route::get('editSpp/{ids}',[SiswaController::class,'editSpp']);
+
+//CRUD pembayaran
+Route::post('simpanBayar',[SiswaController::class,'simpanBayar']);
+Route::get('hapusBayar/{idpembayaran}',[SiswaController::class,'hapusBayar']);
+Route::get('editBayar/{idpembayaran}',[SiswaController::class,'editBayar']);
 
 

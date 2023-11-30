@@ -40,11 +40,11 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Table SPP</h4>
+                                <h4 class="card-title"><i class="bi bi-currency-exchange"></i> Pembayaran</h4>
                                <!-- Modal Tambah Siswa -->
                                <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-circle"> Tambah Siswa</i>
+                                    <i class="bi bi-database-fill-add"> Bayar</i>
                                 </button>
                                 
                                 <!-- Modal -->
@@ -52,35 +52,42 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-currency-exchange"></i> Pembayaran</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ url('simpanSiswa') }}" method="post">
+                                            <form action="{{ url('simpanBayar') }}" method="post">
                                                 @csrf
                                                 <div class="mb-3">
+                                                    <label for="id_petugas" class="form-label">ID Petugas</label>
+                                                    <select class="form-select" name="id_petugas" id="id_petugas">
+                                                     @foreach ($p as $p)
+                                                     <option value="{{$p->id_petugas}}">{{$p->nama_petugas}}</option>
+                                                     @endforeach
+                                                   </select>
+                                                        @error('id_petugas')
+                                                        <div class="form-text">
+                                                            {{$message}}
+                                                        </div>
+                                                    @enderror    
+                                                </div>
+                                                <div class="mb-3">
                                                     <label for="nisn" class="form-label">Nisn</label>
-                                                    <input type="text" class="form-control" name="nisn" id="nisn" placeholder="NISN">
-                                                    @error('nisn')
+                                                    <select class="form-select" name="nisn" id="nisn">
+                                                     @foreach ($sw as $siswa)
+                                                     <option value="{{$siswa->nisn}}">{{$siswa->nisn}}</option>
+                                                     @endforeach
+                                                   </select>
+                                                        @error('id_petugas')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
                                                     @enderror    
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nis" class="form-label">NIS</label>
-                                                    <input type="text" class="form-control" name="nis" id="nis"
-                                                        placeholder="NIS">
-                                                        @error('nis')
-                                                        <div class="form-text">
-                                                            {{$message}}
-                                                        </div>
-                                                    @enderror    
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="nama" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" name="nama" id="nama"
-                                                        placeholder="Nama Lengkap">
+                                                    <label for="tanggal_bayar" class="form-label">Tanggal Bayar</label>
+                                                    <input type="date" class="form-control" name="tgl_bayar" id="tgl_bayar"
+                                                        placeholder="hh/bb/tt">
                                                         @error('nama')
                                                         <div class="form-text">
                                                             {{$message}}
@@ -88,46 +95,60 @@
                                                     @enderror    
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="alamat" class="form-label">Alamat</label>
-                                                    <input type="text" class="form-control" name="alamat" id="alamat"
-                                                        placeholder="Alamat">
-                                                        @error('alamat')
+                                                    <label for="bulan_bayar" class="form-label">Bulan Bayar</label>
+                                                    <select class="form-select" name="bulan_bayar" id="bulan_bayar">
+                                                        <option value="Januari">Januari</option>
+                                                        <option value="Februari">Februari</option>
+                                                        <option value="Maret">Maret</option>
+                                                        <option value="April">April</option>
+                                                        <option value="Mei">Mei</option>
+                                                        <option value="Juni">Juni</option>
+                                                        <option value="Juli">Juli</option>
+                                                        <option value="Agustus">Agustus</option>
+                                                        <option value="September">September</option>
+                                                        <option value="Oktober">Oktober</option>
+                                                        <option value="November">November</option>
+                                                        <option value="Desember">Desember</option>
+                                                      </select>
+                                                        @error('bulan_bayar')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
                                                     @enderror    
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="no_telp" class="form-label">No Telpon</label>
-                                                    <input type="text" class="form-control" name="no_telp" id="no_telp"
-                                                        placeholder="08XXXXXXXXXX">
-                                                        @error('no_telp')
+                                                    <label for="tahun_bayar" class="form-label">Tahun Bayar</label>
+                                                    <select class="form-select" name="tahun_bayar" id="tahun_bayar">
+                                                        <option>2020</option>
+                                                        <option>2021</option>
+                                                        <option>2022</option>
+                                                        <option>2023</option>
+                                                        <option>2024</option>
+                                                    </select>
+                                                        @error('tahun_bayar')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
-                                                    @enderror    
+                                                    @enderror  
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="id_spp" class="form-label">ID Spp</label>
                                                     <select class="form-select" name="id_spp" id="id_spp">
-                                                        @foreach ($spp as $sp)
-                                                        <option value={{$sp->id_spp}}>{{$sp->tahun}} - {{$sp->nominal}}</option>
-                                                        @endforeach
-                                                      </select>
+                                                     @foreach ($spp as $sp)
+                                                     <option value="{{$sp->id_spp}}">{{$sp->tahun}}-{{$sp->nominal}}</option>
+                                                     @endforeach
+                                                    </select>
                                                         @error('id_spp')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
                                                     @enderror    
-                                                </div> 
+                                                </div>
                                                 <div class="mb-3">
-                                                    <label for="id_kelas" class="form-label">Kelas</label>
-                                                    <select class="form-select" name="id_kelas" id="id_kelas">
-                                                        @foreach ($kls as $kelas)
-                                                        <option value="{{$kelas->id_kelas}}">{{$kelas->nama_kelas}} - {{$kelas->kompetensi_keahlian}}</option>
-                                                        @endforeach
-                                                      </select>
-                                                        @error('id_kelas')
+                                                    <label for="jumlah_bayar" class="form-label">Jumlah Bayar</label>
+                                                    <input type="text" class="form-control" name="jumlah_bayar" id="jumlah_bayar"
+                                                        placeholder="Jumlah Bayar">
+                                                        @error('jumlah_bayar')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
@@ -156,26 +177,27 @@
                                                 <th class="border-top-0">Bulan Bayar</th>
                                                 <th class="border-top-0">Tahun Bayar</th>
                                                 <th class="border-top-0">ID Spp</th>
+                                                <th class="border-top-0">Jumlah Bayar</th>
                                                 <th class="border-top-0">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+                                            @foreach ($pb as $pemb)
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{$pemb->id_pembayaran}}</td>
+                                                <td>{{$pemb->id_petugas}}</td>
+                                                <td>{{$pemb->nisn}}</td>
+                                                <td>{{$pemb->tgl_bayar}}</td>
+                                                <td>{{$pemb->bulan_bayar}}</td>
+                                                <td>{{$pemb->tahun_bayar}}</td>
+                                                <td>{{$pemb->id_spp}}</td>
+                                                <td>{{$pemb->jumlah_bayar}}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
+                                                    <a href="{{url('editBayar/'.$pemb->id_pembayaran)}}" class="btn btn-warning btn-circle btn-sm btn-open"><i class="bi bi-pencil-square"></i></a>
+                                                    <a href="{{url('hapusBayar/'.$pemb->id_pembayaran)}}" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
                                                 </td>
-                                            
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

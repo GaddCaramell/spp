@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Spp extends Model
 {
@@ -28,5 +29,9 @@ class Spp extends Model
      public function Siswa(): HasMany
      {
         return $this->hasMany(Siswa::class,'id_spp', 'id_spp');
+     }
+     public function Pembayaran(): HasMany
+     {
+      return $this->hasMany(Pembayaran::class,'id_pembayaran','id_pembayaran');
      }
 }

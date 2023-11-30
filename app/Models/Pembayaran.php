@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pembayaran extends Model
 {
@@ -23,4 +24,19 @@ class Pembayaran extends Model
      // Setting kolom yang dapat diisi dengan massal
  
      protected $guarded=[];
+
+     public function Petugas(): BelongsTo
+     {
+        return $this->belongsTo(Petugas::class,'id_petugas','id_petugas');
+     }
+
+     public function Spp(): BelongsTo
+     {
+        return $this->belongsTo(Spp::class,'id_spp','id_spp');
+     }
+
+     public function Siswa(): BelongsTo
+    {
+        return $this->belongsTo(Siswa::class,'nisn','nisn');
+    }
 }

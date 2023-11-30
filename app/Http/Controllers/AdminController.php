@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function tablepetugas(){
-        return view('LayoutUtama.tablepetu');
+        $petu = new Petugas();
+        return view('LayoutUtama.tablepetu',['petu'=> $petu->all()]);
     }
 
     public function adminDash(){
@@ -19,15 +20,18 @@ class AdminController extends Controller
     public function loginpetugas(){
         return view ('LoginLogout.loginadmin');
     }
-    public function cekLoginPetu(Request $request){
-        $adm = new Petugas();
 
-        if($adm->where('username',$request->input('username'))->where('password',$request->input('password'))->exists()){
-            return redirect('LayoutUtama.index2');
-        }
-        return back()->with('notif','Username atau Password salah!!');
-        
-    }   
+    public function simpanPetu(Request $request){
+        $p = new Petugas();
+        $p->create($request->all());
+        return redirect('Petugastable')->with('notif','Data Berhasil Dibuat');
+    }
+    public function hapusPetu($idp){
+        $p = new Petugas();
+        $p->find($idp)->delete();
+        return back();
+    }
+     
 
     public function logoutPetu(){
         session()->flush();

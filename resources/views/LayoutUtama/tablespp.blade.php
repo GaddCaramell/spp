@@ -42,7 +42,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Table SPP</h4>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-circle"> Tambah Spp</i>
+                                    <i class="bi bi-database-fill-add"> Tambah Spp</i>
                                 </button>
                                 
                                 <!-- Modal -->
@@ -50,7 +50,7 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">SPP</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-book"></i> SPP</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">

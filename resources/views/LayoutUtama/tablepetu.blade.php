@@ -40,10 +40,10 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Table SPP</h4>
+                                <h4 class="card-title">Table Petugas</h4>
                                 <h6 class="card-subtitle"> </h6>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-circle"> Tambah Siswa</i>
+                                    <i class="bi bi-person-plus"> Tambah Petugas</i>
                                 </button>
                                 
                                 <!-- Modal -->
@@ -51,78 +51,46 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-person-lines-fill"></i> Tambah Petugas</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form action="{{ url('simpanPetu') }}" method="post">
                                                 @csrf
                                                 <div class="mb-3">
-                                                    <label for="nisn" class="form-label">Nisn</label>
-                                                    <input type="text" class="form-control" name="nisn" id="nisn" placeholder="NISN">
-                                                    @error('nisn')
+                                                    <label for="nisn" class="form-label">Nama Petugas</label>
+                                                    <input type="text" class="form-control" name="nama_petugas" id="nama_petugas" placeholder="Nama Petugas">
+                                                    @error('nama_petugas')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
                                                     @enderror    
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nis" class="form-label">NIS</label>
-                                                    <input type="text" class="form-control" name="nis" id="nis"
-                                                        placeholder="NIS">
-                                                        @error('nis')
+                                                    <label for="username" class="form-label">Username</label>
+                                                    <input type="text" class="form-control" name="username" id="username"
+                                                        placeholder="Username">
+                                                        @error('username')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
                                                     @enderror    
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nama" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" name="nama" id="nama"
-                                                        placeholder="Nama Lengkap">
-                                                        @error('nama')
+                                                    <label for="password" class="form-label">Password</label>
+                                                    <input type="text" class="form-control" name="password" id="password"
+                                                        placeholder="Password">
+                                                        @error('password')
                                                         <div class="form-text">
                                                             {{$message}}
                                                         </div>
                                                     @enderror    
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="alamat" class="form-label">Alamat</label>
-                                                    <input type="text" class="form-control" name="alamat" id="alamat"
-                                                        placeholder="Alamat">
-                                                        @error('alamat')
-                                                        <div class="form-text">
-                                                            {{$message}}
-                                                        </div>
-                                                    @enderror    
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="no_telp" class="form-label">No Telpon</label>
-                                                    <input type="text" class="form-control" name="no_telp" id="no_telp"
-                                                        placeholder="08XXXXXXXXXX">
-                                                        @error('no_telp')
-                                                        <div class="form-text">
-                                                            {{$message}}
-                                                        </div>
-                                                    @enderror    
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="id_spp" class="form-label">ID Spp</label>
-                                                    <input type="text" class="form-control" name="id_spp" id="id_spp"
-                                                        placeholder="ID Spp">
-                                                        @error('id_spp')
-                                                        <div class="form-text">
-                                                            {{$message}}
-                                                        </div>
-                                                    @enderror    
-                                                </div> 
-                                                <div class="mb-3">
-                                                    <label for="id_kelas" class="form-label">Kelas</label>
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>Open this select menu</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <label for="level" class="form-label">Level</label>
+                                                    <select class="form-select" aria-label="Default select example">    
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Petugas</option>
                                                       </select>
                                                         @error('id_kelas')
                                                         <div class="form-text">
@@ -136,23 +104,37 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                               <!-- End Modal Tambah Siswa -->
                                 <div class="table-responsive">
                                     <table class="table user-table">
                                         <thead>
                                             <tr>
-                                                <th class="border-top-0">#</th>
-                                                <th class="border-top-0">First Name</th>
-                                                <th class="border-top-0">Last Name</th>
+                                                <th class="border-top-0">ID Petugas</th>
+                                                <th class="border-top-0">Nama Petugas</th>
                                                 <th class="border-top-0">Username</th>
+                                                <th class="border-top-0">Password</th>
+                                                <th class="border-top-0">Level</th>
+                                                <th class="border-top-0">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($petu as $pet)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
+                                                <td>{{$pet->id_petugas}}</td>
+                                                <td>{{$pet->nama_petugas}}</td>
+                                                <td>{{$pet->username}}</td>
+                                                <td>{{$pet->password}}</td>
+                                                <td>{{$pet->level}}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                                    <a href="{{url('hapusPetu/'.$pet->id_petugas)}}" class="btn btn-danger btn-circle btn-sm"><i class="bi bi-trash-fill" style="color: white"></i></a>
+                                                </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
