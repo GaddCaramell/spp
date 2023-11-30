@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    public function adminDash(){
+        $dp = new Petugas();
+        $dsp = new Spp();
+        $dss = new Siswa();
+        $dk = new Kelas();
+        $dpm = new Pembayaran();
+        return view('LayoutUtama.index2',['siswa'=> $dss->all(),'kls'=> $dk->all(),'spp'=> $dsp->all(),'pemb'=>$dpm->all(),'petu'=>$dp->all(   )]);
+    }
     public function tablesiswa(){
         $siswa = new Siswa();
         $datakelas = new Kelas();
@@ -34,6 +42,12 @@ class SiswaController extends Controller
         $pb = $pb->with(['Petugas','Spp','Siswa'])->get();
         return view('LayoutUtama.pembayaran',['pb'=> $pb->all(),'p'=>$datapetugas->all(),'spp'=>$dataspp->all(),'sw'=>$datasiswa->all()]);
     }
+    public function tablepetugas(){
+        $petu = new Petugas();
+        return view('LayoutUtama.tablepetu',['petu'=> $petu->all()]);
+    }
+
+   
 
     //Start CRUD Siswa
     public function simpanSiswa(Request $request){
@@ -115,7 +129,18 @@ class SiswaController extends Controller
         return redirect('Pembayarantable')->with('notif','Berhasil Diedit');
     }
 
-
-
     //End CRUD Bayar
+    //Start CRUD Petugas
+    public function simpanPetu(Request $request){
+        $p = new Petugas();
+        $p->create($request->all());
+        return redirect('Petugastable')->with('notif','Data Berhasil Dibuat');
+    }
+    public function hapusPetu($idp){
+        $p = new Petugas();
+        $p->find($idp)->delete();
+        return back();
+    }
+     
+    //End CRUD Petugas
 }

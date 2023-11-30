@@ -7,18 +7,17 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function tablepetugas(){
-        $petu = new Petugas();
-        return view('LayoutUtama.tablepetu',['petu'=> $petu->all()]);
+    
+
+    
+    public function LoginAdmin(){
+        return view('LoginLogout/loginadmin');
     }
 
-    public function adminDash(){
-        return view('LayoutUtama.index2');
-    }
 
-
-    public function loginpetugas(){
-        return view ('LoginLogout.loginadmin');
+    public function logoutpetugas(){
+        session()->flush();
+        return redirect('LoginLogout.loginadmin');
     }
 
     public function simpanPetu(Request $request){
@@ -33,9 +32,5 @@ class AdminController extends Controller
     }
      
 
-    public function logoutPetu(){
-        session()->flush();
-        return redirect('LoginLogout.loginadmin');
-    }
 
 }

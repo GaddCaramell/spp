@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SiswaController;
 
+use App\Http\Middleware\LoginMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //Interface
-Route::get('DashAdmin',[AdminController::class,'adminDash']);
-// Route::get('TambahSiswa',[SiswaController::class,'tambahSiswaUI']);
+Route::get('DashAdmin',[SiswaController::class,'adminDash']);
+Route::get('Login',[AdminController::class,'LoginAdmin']);
 
 //Table
 Route::get('Siswatable',[SiswaController::class,'tablesiswa']);
-Route::get('Petugastable',[AdminController::class,'tablepetugas']);
+Route::get('Petugastable',[SiswaController::class,'tablepetugas']);
 Route::get('Kelastable',[SiswaController::class,'tablekelas']);
 Route::get('Spptable',[SiswaController::class,'tablespp']);
 Route::get('Pembayarantable',[SiswaController::class,'tablebayar']);
@@ -35,7 +36,8 @@ Route::get('Pembayarantable',[SiswaController::class,'tablebayar']);
 //Login & Simpan Login Petugas & Admin
 Route::post('simpanPetu',[AdminController::class,'simpanPetu']);
 Route::get('hapusPetu/{idp}',[AdminController::class,'hapusPetu']);
-Route::get('loginpetu',[AdminController::class,'loginpetugas']);
+Route::post('loginpetu',[AdminController::class,'loginpetugas']);
+Route::post('logoutpetu',[AdminController::class,'logoutpetugas']);
 
 //Login & Simpan Login Siswa
 Route::get('LoginSiswa',[SiswaController::class,'loginSiswa']);
