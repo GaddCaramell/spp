@@ -70,7 +70,6 @@
                                     <th class="border-top-0">Alamat</th>
                                     <th class="border-top-0">No Telfon</th>
                                     <th class="border-top-0">ID Spp</th>
-                                    <th class="border-top-0">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
